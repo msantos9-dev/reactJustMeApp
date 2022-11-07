@@ -40,13 +40,13 @@ const InputComment = ({children, post, onReply, setOnReply}) => {
             style={{
                 filter: theme ? 'invert(1)' : 'invert(0)',
                 color: theme ? 'white' : '#111',
-                background: theme ? 'rgba(0,0,0,.03)' : '',
+                background: theme ? 'rgba(0,0,0,.03)' : '', 
             }} />
 
-            <Icons setContent={setContent} content={content} theme={theme} />
+            <Icons  setContent={setContent} content={content} theme={theme} />
 
-            <button type="submit" className="postBtn text">
-                <span style={{filter: theme ? 'invert(1)' : 'invert(0)', color: content.length > 0 ?  "#00E3BF": "gray", height: "10px"}}><ion-icon name="send-outline"></ion-icon></span>
+            <button type="submit" className="postBtn text mt-2">
+                <span style={{filter: theme ? 'invert(1)' : 'invert(0)', color: content.length > 0 ?  "#3c68b1 ": "gray", fontSize: "20px"}}><ion-icon name="send"></ion-icon></span>
             </button>
         </form>
     )

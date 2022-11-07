@@ -27,7 +27,7 @@ const NotifyModal = () => {
         Swal.fire({
             text: "Are you sure you want to delete all notifications?",
         showCancelButton: true,
-        confirmButtonColor: '#00E3BF',
+        confirmButtonColor: '#3c68b1 ',
         cancelButtonColor: 'gray',
         confirmButtonText: 'Yes',
         cancelButtonText: 'No',
@@ -53,11 +53,11 @@ const NotifyModal = () => {
                 {
                     notify.sound 
                     ? <i className="fas fa-bell " 
-                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#00E3BF"}}
+                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
                     onClick={handleSound} />
 
                     : <i className="fas fa-bell-slash"
-                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#00E3BF"}}
+                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
                     onClick={handleSound} />
                 }
             </div>
@@ -69,7 +69,7 @@ const NotifyModal = () => {
            
             }
 
-            <div style={{maxHeight: 'calc(100vh - 200px)', overflow: 'auto'}}>
+            <div style={{maxHeight: 'calc(100vh - 400px)', overflow: 'auto'}}>
                 {
                     notify.data.map((msg, index) => (
                         <div key={index} className="px-2 mb-3" >
@@ -100,7 +100,7 @@ const NotifyModal = () => {
                             <small className="text-muted d-flex justify-content-between px-2">
                                 {moment(msg.createdAt).fromNow()}
                                 {
-                                    !msg.isRead && <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#00E3BF"}} className="fas fa-circle" />
+                                    !msg.isRead && <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-circle" />
                                 }
                             </small>
                         </div>
@@ -110,7 +110,7 @@ const NotifyModal = () => {
             </div>
 
             <hr className="my-1" />
-            <div className="text-right mr-2" style={{filter: theme ? 'invert(1)' : 'invert(0)', cursor: 'pointer',color: "#00E3BF"}}
+            <div className="text-right mr-2" style={{filter: theme ? 'invert(1)' : 'invert(0)', cursor: 'pointer',color: "#3c68b1 "}}
             onClick={handleDeleteAll}>
                 Delete Notifications
             </div>

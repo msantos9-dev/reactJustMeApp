@@ -16,7 +16,7 @@ const RightSideBar = () => {
             <UserCard user={auth.user} />
 
             <div className="d-flex justify-content-between align-items-center my-3">
-                <h5 style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#00E3BF"}}>People you may know.</h5>
+                <h5 style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}}>People you may know.</h5>
                 {
                     !suggestions.loading &&
                     

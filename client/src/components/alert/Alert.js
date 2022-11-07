@@ -4,6 +4,7 @@ import { GLOBALTYPES } from '../../redux/actions/globalTypes'
 
 import Loading from './Loading'
 import Toast from './Toast'
+import Swal from 'sweetalert2';
 
 
 const Notify = () => {
@@ -16,16 +17,37 @@ const Notify = () => {
 
             {
                 alert.error && 
-                <Toast msg={{title: 'Error', body: alert.error}} 
-                handleShow={() => dispatch({type: GLOBALTYPES.ALERT, payload: {}})} 
-                txtColor="text-danger" />
+                Swal.fire({
+                    title : 'Error',
+                    text: alert.error,
+                    icon: 'error',
+                    customClass: {
+                    container: 'position-absolute'
+                    },
+                    toast: true,
+                    position: 'top-right',
+                    timer: 1500,
+                    showConfirmButton: false,
+                
+                  }) && dispatch({type: GLOBALTYPES.ALERT, payload: {}})
+               
             }
 
             {
                 alert.success && 
-                <Toast msg={{title: 'Success', body: alert.success, }} 
-                handleShow={() => dispatch({type: GLOBALTYPES.ALERT, payload: {}})}
-                txtColor="text-success" />
+               Swal.fire({
+                    title : 'Success',
+                    icon: 'success',
+                    text: alert.success,
+                    customClass: {
+                      container: 'position-absolute'
+                    },
+                    toast: true,
+                    position: 'top-right',
+                    timer: 1500,
+                    showConfirmButton: false,
+                
+                  }) && dispatch({type: GLOBALTYPES.ALERT, payload: {}})
             }
             
         </div>

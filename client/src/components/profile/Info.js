@@ -44,12 +44,12 @@ const Info = ({id, auth, profile, dispatch}) => {
 
                         <div className="info_content">
                             <div className="info_content_title">
-                                <h2>@{user.username}</h2>
+                                <h2 style={{opacity:"0.7"}}>@{user.username}</h2>
                                 {
                                     user._id === auth.user._id
-                                    ?  <button className="btn "  style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor: '#00E3BF', color: "white"}}
+                                    ?  <button className="btnEditProfile"  style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
                                     onClick={() => setOnEdit(true)}>
-                                       <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>Edit Profile</span>
+                                       <span s>Edit Profile</span>
                                     </button>
                                     
                                     : <FollowBtn user={user} />
@@ -58,7 +58,7 @@ const Info = ({id, auth, profile, dispatch}) => {
                                
                             </div>
 
-                            <div className="follow_btn " style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#00E3BF"}}>
+                            <div className="follow_btn " style={{opacity:"0.7", filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}}>
                                 <h6><span className="mr-4" onClick={() => setShowFollowers(true)}>
                                     {user.followers.length} Followers
                                 </span>
@@ -68,14 +68,17 @@ const Info = ({id, auth, profile, dispatch}) => {
                                 </span>
                                 </h6>
                             </div>
+                            <div style={{opacity:"0.7"}}>
 
-                            <h6>{user.fullname} | <span className="text-black">{user.mobile}</span></h6>
+                            <h6 >{user.fullname} | <span className="text-black">{user.mobile}</span></h6>
                             <p className="m-0">{user.address}</p>
                             <h6 className="m-0">{user.email}</h6>
                             <a href={user.website} style={{color:"black"}} target="_blank" rel="noreferrer">
                                 {user.website}
                             </a>
                             <p>{user.story}</p>
+                            </div>
+                            
                         </div>
 
                         {

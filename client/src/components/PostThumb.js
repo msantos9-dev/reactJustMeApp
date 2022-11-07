@@ -1,16 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import defThumb from '../images/defThumb.jpg'
 
 const PostThumb = ({posts, result}) => {
     const { theme } = useSelector(state => state)
 
-    if(result === 0) return <h2 className="mt-4 text-center text-secondary">Nothing to display at the moment...</h2>
+    if(result === 0) return <h2 className="text-center text-info">No Post to show</h2>
+   
 
     return (
         <div className="post_thumb">
             {
-                posts.map(post => (
+                posts.map(post => ( post.images.length > 0 ? 
+                    //with image data
                     <Link key={post._id} to={`/post/${post._id}`}>
                         <div className="post_thumb_display">
 
@@ -21,14 +24,29 @@ const PostThumb = ({posts, result}) => {
 
                                 :<img src={post.images[0].url} alt={post.images[0].url}
                                 style={{filter: theme ? 'invert(1)' : 'invert(0)'}} />
+                                
                             }
 
                             <div className="post_thumb_menu">
-                                <i className="far fa-thumbs-up"><span className='m-2'>{post.likes.length}</span></i>
-                                <i className="far fa-comment"><span className='m-2'>{post.comments.length}</span></i>
+                                <i className="far fa-thumbs-up"> {post.likes.length}</i>
+                                <i className="far fa-comment"> {post.comments.length}</i>
+                            </div>
+                        </div>
+                    </Link> : 
+                    
+                    <Link key={post._id} to={`/post/${post._id}`}>
+                        <div className="post_thumb_display" style={{ filter: theme ? 'invert(1)' : 'invert(0)', backgroundImage: `url(${defThumb})` , textAlign:"center", color:"white", fontSize: "22px", padding: "25%"}}>
+
+                            
+                            <span >"{post.content.length > 50 ? post.content.slice(0,50) + "..." : post.content.slice(0,50)}"</span>
+
+                            <div className="post_thumb_menu">
+                                <i className="far fa-thumbs-up"> {post.likes.length}</i>
+                                <i className="far fa-comment"> {post.comments.length}</i>
                             </div>
                         </div>
                     </Link>
+                
                 ))
             }
         </div>

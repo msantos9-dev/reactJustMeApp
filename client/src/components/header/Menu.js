@@ -9,15 +9,20 @@ import NotifyModal from "../NotifyModal";
 const Menu = () => {
   
   const navLinks = [
-    { label: "Home", icon: "home-outline", path: "/" },
-    { label: "Message", icon: "chatbubble-ellipses-outline", path: "/message" },
-    { label: "Discover", icon: "planet-outline", path: "/discover" },
+    { label: "Home", icon: "home-sharp", path: "/" },
+    { label: "Message", icon: "chatbubble-ellipses", path: "/message" },
+    { label: "Discover", icon: "planet", path: "/discover" },
   ];
 
   const { auth, theme, notify } = useSelector((state) => state);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   
+  const getUnread = () => {
+    const newArr = notify.data.filter(item => item.isRead === false)
+    return newArr.length;
+}
+
 
   const isActive = (pn) => {
     if (pn === pathname) return "active";
@@ -31,26 +36,28 @@ const Menu = () => {
           <li className={`nav-item px-2 ${isActive(link.path)} `} key={index}>
             <Link className="nav-link" to={link.path}>
              <span className="material-icons"
-             style={{ filter: theme ? 'invert(1)' : 'invert(0)', color: `${isActive(link.path)? "#00E3BF":"gray"}` }}><ion-icon name={`${link.icon}`}></ion-icon></span>
+             style={{ filter: theme ? 'invert(1)' : 'invert(0)', color: `${isActive(link.path)? "#3c68b1 ":"gray"}` }}><ion-icon name={`${link.icon}`}></ion-icon></span>
             </Link>
           </li>
         ))}
 
-        <li className="nav-item dropdown" style={{ opacity: 1 }}>
-          <span
-            className="nav-link position-relative"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span className="material-icons" style={{ filter: theme ? 'invert(1)' : 'invert(0)', color: notify.data.length > 0 ? "#00E3BF" : " #bababa" }} >
-              {notify.data.length > 0 ? <ion-icon name="notifications"></ion-icon> : <ion-icon name="notifications-outline"></ion-icon>}
-            </span>
-            
-            <span className="notify_length" style={{ color: notify.data.length > 0 ? "#00E3BF" : "#00E3BF" }}></span>
-            
+                <li className="nav-item dropdown" style={{ opacity: 1 }} >
+                    <span className="nav-link position-relative" id="navbarDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                       {/*  <span className="material-symbols-outlined text-primary"
+                            style={{ color: notify.data.length > 0 ? 'primary' : '' }}>
+                            notifications
+                        </span> */}
+                        <span className="material-icons">
+                          <ion-icon name="notifications" style={{ filter: theme ? 'invert(1)' : 'invert(0)',  color: getUnread() > 0 ? '#3c68b1' : 'gray' }}></ion-icon>
+                        </span>
+                        {getUnread() > 0 &&
+                        <span className="notify_length badge badge-pill" style={{ filter: theme ? 'invert(1)' : 'invert(0)', outlineColor:"#3c68b1", outlineStyle: "solid", outlineWidth: "1px", backgroundColor: "white", color: "#3c68b1"}}>
+                            {getUnread()}
+                        </span>
+                        }
+
           </span>
           
           <div

@@ -15,7 +15,7 @@
     cursor: pointer;
     overflow: hidden;
     border-radius: 2%;
-    box-shadow: 3px 3px 10px #e4e4e4 ;
+   
 }
 .post_thumb_display img,
 .post_thumb_display video{

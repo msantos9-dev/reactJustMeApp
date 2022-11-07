@@ -62,7 +62,7 @@ const Login = () => {
                    
                 </div>
                 
-                <button type="submit" className="btn  w-100" style={{color: "white", backgroundColor:"#00E3BF"}}
+                <button type="submit" className="btn  w-100" style={{color: "white", backgroundColor:"#3c68b1 "}}
                 disabled={email && password ? false : true}>
                     Login
                 </button>

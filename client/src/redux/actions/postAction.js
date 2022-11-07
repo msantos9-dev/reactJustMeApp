@@ -18,7 +18,7 @@ export const createPost = ({content, images, auth, socket}) => async (dispatch) 
     try {
         dispatch({ type: GLOBALTYPES.ALERT, payload: {loading: true} })
         if(images.length > 0) media = await imageUpload(images)
-
+        
         const res = await postDataAPI('posts', { content, images: media }, auth.token)
 
         dispatch({ 
@@ -42,10 +42,12 @@ export const createPost = ({content, images, auth, socket}) => async (dispatch) 
         dispatch(createNotify({msg, auth, socket}))
 
     } catch (err) {
-        dispatch({
-            type: GLOBALTYPES.ALERT,
-            payload: {error: err.response.data.msg}
-        })
+        if(err && images.length > 0){
+            dispatch({
+                type: GLOBALTYPES.ALERT,
+                payload: {error: err.response.data.msg}
+            })
+        }
     }
 }
 
@@ -105,7 +107,7 @@ export const likePost = ({post, auth, socket}) => async (dispatch) => {
 
     try {
         await patchDataAPI(`post/${post._id}/like`, null, auth.token)
-        
+       // alert(post.images[0] ? "a":"b")
         // Notify
         const msg = {
             id: auth.user._id,
@@ -113,12 +115,13 @@ export const likePost = ({post, auth, socket}) => async (dispatch) => {
             recipients: [post.user._id],
             url: `/post/${post._id}`,
             content: post.content, 
-            image: post.images[0].url
+            image: post.images[0] ? post.images[0].url : ""
         }
 
         dispatch(createNotify({msg, auth, socket}))
 
     } catch (err) {
+
         dispatch({
             type: GLOBALTYPES.ALERT,
             payload: {error: err.response.data.msg}

@@ -112,7 +112,7 @@ const LeftSide = () => {
                                     <UserCard user={user} msg={true}>
                                         {
                                             user.online
-                                            ? <i className="fas fa-circle" style={{color:"#00E3BF"}} />
+                                            ? <i className="fas fa-circle" style={{color:"#3c68b1 "}} />
                                             : auth.user.following.find(item => 
                                                 item._id === user._id
                                             ) && <i className="fas fa-circle" />

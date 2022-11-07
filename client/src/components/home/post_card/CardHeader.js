@@ -9,7 +9,7 @@ import { BASE_URL } from '../../../utils/config'
 import Swal from 'sweetalert2';
 
 const CardHeader = ({post}) => {
-    const { auth, socket } = useSelector(state => state)
+    const { auth, theme, socket } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const history = useHistory()
@@ -24,7 +24,7 @@ const CardHeader = ({post}) => {
         Swal.fire({
             text: "Are you sure you want to delete this post?",
             showCancelButton: true,
-            confirmButtonColor: '#00E3BF',
+            confirmButtonColor: '#3c68b1 ',
             cancelButtonColor: 'gray',
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
@@ -33,16 +33,7 @@ const CardHeader = ({post}) => {
             timerProgressBar: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    text: 'Post deleted successfully.',
-                    customClass: {
-                      container: 'position-absolute'
-                    },
-                    toast: true,
-                    position: 'top-right',
-                    timer: 1500,
-                    confirmButtonColor: "#00E3BF"
-                  })
+               
                 dispatch(deletePost({post, auth, socket}))
             return history.push("/")
             }
@@ -81,7 +72,7 @@ const CardHeader = ({post}) => {
                 <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </span>
 
-                <div className="dropdown-menu">
+                <div style={{filter: theme ? 'invert(1)' : 'invert(0)' }} className="dropdown-menu">
                     {
                         auth.user._id === post.user._id &&
                         <>

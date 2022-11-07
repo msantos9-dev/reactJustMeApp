@@ -15,7 +15,7 @@ const MsgDisplay = ({user, msg, theme, data}) => {
         Swal.fire({
             text: "Are you sure you want to delete this message?",
             showCancelButton: true,
-            confirmButtonColor: '#00E3BF',
+            confirmButtonColor: '#3c68b1 ',
             cancelButtonColor: 'gray',
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
@@ -27,16 +27,29 @@ const MsgDisplay = ({user, msg, theme, data}) => {
             if (result.isConfirmed) {
                 Swal.fire({
                     text: 'Message deleted successfully.',
+                    icon: 'success',
                     customClass: {
                       container: 'position-absolute'
                     },
                     toast: true,
                     position: 'top-right',
                     timer: 1500,
-                    confirmButtonColor: "#00E3BF"
+                    showConfirmButton: false
                   })
                 dispatch(deleteMessages({msg, data, auth}))
                 
+            }else{
+                Swal.fire({
+                    text: 'Message not deleted',
+                    icon: 'error',
+                    customClass: {
+                      container: 'position-absolute'
+                    },
+                    toast: true,
+                    position: 'top-right',
+                    timer: 1500,
+                    showConfirmButton: false
+                  })
             }
         })
       
@@ -62,7 +75,7 @@ const MsgDisplay = ({user, msg, theme, data}) => {
                         <div className="chat_text"
                         style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
                         >
-                            <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>{msg.text}</span>
+                            <span style={{filter: theme ? 'invert(0)' : 'invert(0)'}}>{msg.text}</span>
                         </div>
                     }
                     {
@@ -85,7 +98,7 @@ const MsgDisplay = ({user, msg, theme, data}) => {
 
                         <span className="material-icons font-weight-bold mr-1"
                         style={{ 
-                            fontSize: '1.5rem', color: msg.call.times === 0 ? 'gray' : '#00E3BF',
+                            fontSize: '1.5rem', color: msg.call.times === 0 ? 'gray' : '#3c68b1 ',
                             filter: theme ? 'invert(1)' : 'invert(0)'
                         }}>
                             {

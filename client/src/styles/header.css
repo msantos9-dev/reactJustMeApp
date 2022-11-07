@@ -44,8 +44,8 @@
 
 .header .menu .notify_length{
     position: absolute;
-    top: 45%;
-    left: 50%;
+    top: 30%;
+    left: 75%;
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
@@ -58,17 +58,19 @@
 }
 .header .search_form #search{
    
-    border: 1px solid #ddd;
+    border: 2px solid lightgrey;
     min-width: 350px;
     width: 100%;
-    outline: solid 1px rgb(194, 194, 194);
+   
     text-indent: 5px;
     border-radius: 10px;
+    height: 40px;
 }
 
 .search-color {
     background: #fafafa;
 }
+
 .header .search_form .search_icon{
     position: absolute;
     top: 50%;

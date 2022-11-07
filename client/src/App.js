@@ -7,8 +7,6 @@ import PrivateRouter from './customRouter/PrivateRouter'
 import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
-import NotFound from './components/NotFound'
-
 
 import Alert from './components/alert/Alert'
 import Header from './components/header/Header'
@@ -83,7 +81,8 @@ function App() {
           {auth.token && <SocketClient />}
           {call && <CallModal />}
           
-          <Route exact path="/" component={auth.token ? Home : Login} />
+          <Route exact path="/" component={auth.token ? Home : PageRender} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
 
           <PrivateRouter exact path="/:page" component={PageRender} />

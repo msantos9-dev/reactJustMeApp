@@ -38,7 +38,47 @@ code {
 img {
   object-fit: cover;
 }
+.followbtn{
+  background-color: #3c68b1;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  height: 2.5rem;
+  width: 6rem;
+  padding: 5px 5px 5px 5px;
+}
 
+.followbtn:hover {
+  color:  #3c68b1;
+  outline: 1px solid #3c68b1;
+  background-color: white;
+  height: 2.5rem;
+  width: 6rem;
+  border-radius: 5px;
+  border: none;
+ 
+}
+
+.btnLoadMore{
+  background-color: #3c68b1;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  height: 2.5rem;
+  width: 6rem;
+  padding: 5px 5px 5px 5px;
+}
+
+.btnLoadMore:hover{
+  color:  #3c68b1;
+  outline: 1px solid #3c68b1;
+  background-color: white;
+  height: 2.5rem;
+  width: 6rem;
+  border-radius: 5px;
+  border: none;
+ 
+}
 /* -------- AUTH ---------- */
 @import url("./auth.css");
 

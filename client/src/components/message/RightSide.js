@@ -154,7 +154,7 @@ const RightSide = () => {
     Swal.fire({
         text: "Are you sure you want to delete this conversation?",
         showCancelButton: true,
-        confirmButtonColor: '#00E3BF',
+        confirmButtonColor: '#3c68b1 ',
         cancelButtonColor: 'gray',
         confirmButtonText: 'Yes',
         cancelButtonText: 'No',
@@ -166,13 +166,14 @@ const RightSide = () => {
         if (result.isConfirmed) {
             Swal.fire({
                 text: 'Conversation deleted successfully.',
+                icon: 'success',
                 customClass: {
                   container: 'position-absolute'
                 },
                 toast: true,
                 position: 'top-right',
                 timer: 1500,
-                confirmButtonColor: "#00E3BF"
+                showConfirmButton: false
               })
 
            // Swal.fire({ text: "Conversation deleted successfully.",  timer: 300,})
@@ -264,7 +265,7 @@ const RightSide = () => {
 
                                     {
                                         msg.sender === auth.user._id &&
-                                        <div className="chat_row you_message">
+                                        <div className="chat_row you_message" >
                                             <MsgDisplay user={auth.user} msg={msg} theme={theme} data={data} />
                                         </div>
                                     }
@@ -299,7 +300,7 @@ const RightSide = () => {
             </div>
 
             <form className="chat_input" onSubmit={handleSubmit} >
-                <input type="text" placeholder="Enter your message..."
+                <input className="mt-1" type="text" placeholder="Enter your message..."
                 value={text} onChange={e => setText(e.target.value)}
                 style={{
                     filter: theme ? 'invert(1)' : 'invert(0)',
@@ -309,16 +310,16 @@ const RightSide = () => {
 
                 <Icons setContent={setText} content={text} theme={theme} />
 
-                <div className="file_upload">
-                <span className='mt-2 mr-1'><ion-icon name="images-outline"></ion-icon></span>
+                <div className="file_upload mt-2 mr-3">
+                <span style={{fontSize: "20px", color:"#3c68b1", filter: theme ? 'invert(1)' : 'invert(0)'}} ><ion-icon name="images"></ion-icon></span>
                     <input type="file" name="file" id="file"
                     multiple accept="image/*,video/*" onChange={handleChangeMedia} />
                 </div>
 
               
-                <span className='mt-1'  disabled={(text || media.length > 0) ? false : true} 
-                style={{color: (text || media.length > 0) ?  "#00E3BF": theme ? 'white' : 'white', cursor:"pointer"}}>
-                    <ion-icon style={{filter: theme ? 'invert(1)' : 'invert(0)'}}onClick={handleSubmit} name="send-outline"></ion-icon></span>
+                <span className='mt-2'  disabled={(text || media.length > 0) ? false : true} 
+                style={{color: (text || media.length > 0) ?  "#3c68b1 ": theme ? 'white' : 'gray  ', cursor:"pointer", fontSize: "20px"}}>
+                    <ion-icon style={{filter: theme ? 'invert(1)' : 'invert(0)'}}onClick={handleSubmit} name="send"></ion-icon></span>
             </form>
         </>
     )

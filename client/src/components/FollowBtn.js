@@ -40,11 +40,11 @@ const FollowBtn = ({user}) => {
         <>
         {
             followed
-            ? <button className="btn " style={{filter: theme ? 'invert(1)' : 'invert(0)',color: '00E3BF', outline: "solid", outlineWidth: "1px", outlineColor: "gray"}}
+            ? <button className="followbtn" style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
             onClick={handleUnFollow}>
                 UnFollow
             </button>
-            : <button className="btn "  style={{filter: theme ? 'invert(1)' : 'invert(0)', color: '#00E3BF', outline: "solid", outlineWidth: "1px", outlineColor: "00E3BF"}}
+            : <button className="followbtn"  style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
             onClick={handleFollow}>
                 Follow
             </button>

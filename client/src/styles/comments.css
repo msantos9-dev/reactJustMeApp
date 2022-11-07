@@ -15,6 +15,7 @@
     background: #f7f7f7;
     color: blue;
     font-weight: 600;
+    
 }
 .comment_input .dropdown-menu{
     transform: translate3d(-120px, -200px, 0px) !important;
@@ -55,6 +56,7 @@
     display: flex;
     margin: 10px 0;
 }
+
 .comment_card .comment_content textarea{
     width: 100%;
     border: none;

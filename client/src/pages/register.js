@@ -128,12 +128,12 @@ const Register = () => {
                     </label>
                 </div>
                 
-                <button type="submit" className="btn w-100" style={{color: "white", backgroundColor:"#00E3BF"}}>
+                <button type="submit" className="btn w-100" style={{color: "white", backgroundColor:"#3c68b1 "}}>
                     Register
                 </button>
 
                 <p className="my-2">
-                    Already have an account? <Link to="/" className='font-weight-bold' style={{color: "gray"}}>Login Now</Link>
+                    Already have an account? <Link to="/login" className='font-weight-bold' style={{color: "gray"}}>Login Now</Link>
                 </p>
             </form>
         </div>

@@ -76,10 +76,7 @@ const StatusModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(images.length === 0)
-        return dispatch({ 
-            type: GLOBALTYPES.ALERT, payload: {error: "Please add your photo."}
-        })
+       
 
         if(status.onEdit){
             dispatch(updatePost({content, images, auth, status}))
@@ -190,7 +187,7 @@ const StatusModal = () => {
                 </div>
 
                 <div className="status_footer">
-                    <button style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor: "#00E3BF", color: 'white'}} className="btn  w-100" type="submit">
+                    <button style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor: "#3c68b1 ", color: 'white'}} className="btn  w-100" type="submit">
                     <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>Post</span>
                     </button>
                 </div>

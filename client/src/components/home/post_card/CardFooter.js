@@ -85,13 +85,13 @@ const CardFooter = ({post}) => {
                         <i className="far fa-comment-alt" />
                     </Link>
 
-                    <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#00E3BF"}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
+                    <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
                     
                 </div>
 
                 {
                     saved 
-                    ?  <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#00E3BF"}} className="fas fa-bookmark "
+                    ?  <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-bookmark "
                     onClick={handleUnSavePost} />
                     
 

@@ -222,10 +222,12 @@ const CallModal = () => {
                 }
                 
 
-                <div className="call_menu">
+                <div className="call_menu" style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
                     <button className="material-icons text-danger"
                     onClick={handleEndCall}>
-                        <ion-icon name="call"></ion-icon>
+                        <span>{call.video ?
+                        <ion-icon name="videocam"></ion-icon>
+                        : <ion-icon name="call"></ion-icon>}</span>
                     </button>
                     
                     {
