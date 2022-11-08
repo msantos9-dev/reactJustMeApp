@@ -12,7 +12,7 @@ import LoadIcon from '../../images/loading.gif'
 import Swal from 'sweetalert2';
 
 const RightSide = () => {
-    const { auth, message, theme, socket, peer } = useSelector(state => state)
+    const { auth, message, socket, peer } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const { id } = useParams()
@@ -259,14 +259,14 @@ const RightSide = () => {
                                     {
                                         msg.sender !== auth.user._id &&
                                         <div className="chat_row other_message">
-                                            <MsgDisplay user={user} msg={msg} theme={theme} />
+                                            <MsgDisplay user={user} msg={msg} theme={""} />
                                         </div>
                                     }
 
                                     {
                                         msg.sender === auth.user._id &&
                                         <div className="chat_row you_message" >
-                                            <MsgDisplay user={auth.user} msg={msg} theme={theme} data={data} />
+                                            <MsgDisplay user={auth.user} msg={msg} theme={""} data={data} />
                                         </div>
                                     }
                                 </div>
@@ -290,8 +290,8 @@ const RightSide = () => {
                         <div key={index} id="file_media">
                             {
                                 item.type.match(/video/i)
-                                ? videoShow(URL.createObjectURL(item), theme)
-                                : imageShow(URL.createObjectURL(item), theme)
+                                ? videoShow(URL.createObjectURL(item), "")
+                                : imageShow(URL.createObjectURL(item), "")
                             }
                             <span onClick={() => handleDeleteMedia(index)} >&times;</span>
                         </div>
@@ -302,24 +302,20 @@ const RightSide = () => {
             <form className="chat_input" onSubmit={handleSubmit} >
                 <input className="mt-1" type="text" placeholder="Enter your message..."
                 value={text} onChange={e => setText(e.target.value)}
-                style={{
-                    filter: theme ? 'invert(1)' : 'invert(0)',
-                    background: theme ? '#040404' : '',
-                    color: theme ? 'white' : ''
-                }} />
+                />
 
-                <Icons setContent={setText} content={text} theme={theme} />
+                <Icons setContent={setText} content={text} theme={""} />
 
                 <div className="file_upload mt-2 mr-3">
-                <span style={{fontSize: "20px", color:"#3c68b1", filter: theme ? 'invert(1)' : 'invert(0)'}} ><ion-icon name="images"></ion-icon></span>
+                <span style={{fontSize: "20px", color:"#3c68b1", }} ><ion-icon name="images"></ion-icon></span>
                     <input type="file" name="file" id="file"
                     multiple accept="image/*,video/*" onChange={handleChangeMedia} />
                 </div>
 
               
                 <span className='mt-2'  disabled={(text || media.length > 0) ? false : true} 
-                style={{color: (text || media.length > 0) ?  "#3c68b1 ": theme ? 'white' : 'gray  ', cursor:"pointer", fontSize: "20px"}}>
-                    <ion-icon style={{filter: theme ? 'invert(1)' : 'invert(0)'}}onClick={handleSubmit} name="send"></ion-icon></span>
+                style={{color: (text || media.length > 0) ?  "#3c68b1 ": 'gray  ', cursor:"pointer", fontSize: "20px"}}>
+                    <ion-icon style={{}} onClick={handleSubmit} name="send"></ion-icon></span>
             </form>
         </>
     )

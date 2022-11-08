@@ -9,7 +9,7 @@ import { POST_TYPES } from '../../redux/actions/postAction'
 
 
 const Posts = () => {
-    const { homePosts, auth, theme } = useSelector(state => state)
+    const { homePosts, auth } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [load, setLoad] = useState(false)
@@ -30,7 +30,7 @@ const Posts = () => {
         <div className="posts">
             {
                 homePosts.posts.map(post => (
-                    <PostCard key={post._id} post={post} theme={theme} />
+                    <PostCard key={post._id} post={post} theme={""} />
                 ))
             }
 

@@ -1,0 +1,66 @@
+#darkMode {
+  
+   background-color: var(--background-color);
+   height: 30px;
+   width:30px;
+    border-style: none;
+  }
+  #darkMode.clicked{
+    border-style: none;
+  }
+
+  #darkMode:hover,
+#darkMode:focus {
+  border-style: none;
+}
+  
+  :root {
+    --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
+    --gray: rgb(224, 224, 224);
+    --gray2: rgb(29, 29, 29);
+  }
+  
+  body {
+   
+    background: var(--background-color);
+    color: var(--text-color);
+    font-weight: var(--font-weight);
+    transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+  }
+  
+  body.light {
+    --secondary-color: var(--gray);
+    --background-color: var(--white);
+    --text-color: var(--black);
+    --font-weight: 400;
+  
+  }
+  
+  body.dark {
+    --secondary-color: var(--gray2);
+    --background-color: var(--black);
+    --text-color: var(--white);
+    --font-weight: 500;
+   
+  }
+
+  #userCard {
+    color: var(--text-color);
+  }
+
+  #postCardName {
+    color: var(--text-color);
+  }
+
+  #commentCardName {
+    color: var(--text-color);
+  }
+ 
+
+  nav {
+    background-color: var(--background-color) ;
+  }
+
+
+ 

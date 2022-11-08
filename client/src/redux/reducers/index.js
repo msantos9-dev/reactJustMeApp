@@ -15,6 +15,7 @@ import message from './messageReducer'
 import online from './onlineReducer'
 import call from './callReducer'
 import peer from './peerReducer'
+import darkModeReducer from './darkModeReducer';
 
 
 
@@ -35,5 +36,5 @@ export default combineReducers({
     online,
     call,
     peer,
-
+    darkModeReducer
 })

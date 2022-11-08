@@ -2,8 +2,9 @@ import React from 'react'
 
 const Loading = () => {
     return (
-        <div className="position-fixed w-100 h-100 text-center loading"
-        style={{ color: "#3c68b1 ", top: 0, left: 36, zIndex: 50, 
+
+        <div  className="position-fixed w-100 h-100 text-center loading"
+        style={{ backgroundColor: localStorage.getItem("theme") === "dark" ? "black":"white", color: "#3c68b1 ", top: 0, left:0, zIndex: 50, 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -14,6 +15,7 @@ const Loading = () => {
                 points="13,3 3,14 12,14 11,21 21,10 12,10" />
             </svg>
         </div>
+
     )
 }
 

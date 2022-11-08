@@ -6,7 +6,7 @@ import Icons from './Icons'
 import { imageShow, videoShow } from '../utils/mediaShow'
 
 const StatusModal = () => {
-    const { auth, theme, status, socket } = useSelector(state => state)
+    const { auth, status, socket } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [content, setContent] = useState('')
@@ -117,15 +117,11 @@ const StatusModal = () => {
                     <textarea name="content" value={content}
                     placeholder={`What's on your mind @${auth.user.username}?`}
                     onChange={e => setContent(e.target.value)}
-                    style={{
-                        filter: theme ? 'invert(1)' : 'invert(0)',
-                        color: theme ? 'white' : '#111',
-                        background: theme ? 'rgba(0,0,0,.03)' : '',
-                    }} />
+                     />
 
                     <div className="d-flex">
                         <div className="flex-fill"></div>
-                        <Icons setContent={setContent} content={content} theme={theme} />
+                        <Icons setContent={setContent} content={content} theme={""} />
                     </div>
 
                     <div className="show_images">
@@ -133,24 +129,25 @@ const StatusModal = () => {
                             images.map((img, index) => (
                                 <div key={index} id="file_img">
                                     {
-                                        img.camera ? imageShow(img.camera, theme)
+                                        img.camera ? imageShow(img.camera, "")
                                         : img.url
                                             ?<>
                                                 {
                                                     img.url.match(/video/i)
-                                                    ? videoShow(img.url, theme) 
-                                                    : imageShow(img.url, theme)
+                                                    ? videoShow(img.url, "") 
+                                                    : imageShow(img.url, "")
                                                 }
                                             </>
                                             :<>
                                                 {
                                                     img.type.match(/video/i)
-                                                    ? videoShow(URL.createObjectURL(img), theme) 
-                                                    : imageShow(URL.createObjectURL(img), theme)
+                                                    ? videoShow(URL.createObjectURL(img), "") 
+                                                    : imageShow(URL.createObjectURL(img), "")
                                                 }
                                             </>
                                     }
-                                    <span onClick={() => deleteImages(index)}>&times;</span>
+                                   
+                                    <span><ion-icon onClick={() => deleteImages(index)} name="trash-outline"></ion-icon></span>
                                 </div>
                             ))
                         }
@@ -160,7 +157,7 @@ const StatusModal = () => {
                         stream && 
                         <div className="stream position-relative">
                             <video autoPlay muted ref={videoRef} width="100%" height="100%"
-                            style={{filter: theme ? 'invert(1)' : 'invert(0)'}} />
+                           />
                             
                             <span onClick={handleStopStream}>&times;</span>
                             <canvas ref={refCanvas} style={{display: 'none'}} />
@@ -187,8 +184,8 @@ const StatusModal = () => {
                 </div>
 
                 <div className="status_footer">
-                    <button style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor: "#3c68b1 ", color: 'white'}} className="btn  w-100" type="submit">
-                    <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>Post</span>
+                    <button style={{ backgroundColor: "#3c68b1 ", color: 'white'}} className="btn  w-100" type="submit">
+                    <span >Post</span>
                     </button>
                 </div>
 

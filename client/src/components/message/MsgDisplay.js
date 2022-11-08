@@ -6,7 +6,7 @@ import { deleteMessages } from '../../redux/actions/messageAction'
 import Times from './Times'
 import Swal from 'sweetalert2';
 
-const MsgDisplay = ({user, msg, theme, data}) => {
+const MsgDisplay = ({user, msg, data}) => {
     const { auth } = useSelector(state => state)
     const dispatch = useDispatch()
 
@@ -73,9 +73,9 @@ const MsgDisplay = ({user, msg, theme, data}) => {
                     {
                         msg.text && 
                         <div className="chat_text"
-                        style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
+                        
                         >
-                            <span style={{filter: theme ? 'invert(0)' : 'invert(0)'}}>{msg.text}</span>
+                            <span >{msg.text}</span>
                         </div>
                     }
                     {
@@ -83,8 +83,8 @@ const MsgDisplay = ({user, msg, theme, data}) => {
                             <div key={index}>
                                 {
                                     item.url.match(/video/i)
-                                    ? videoShow(item.url, theme)
-                                    : imageShow(item.url, theme)
+                                    ? videoShow(item.url, "")
+                                    : imageShow(item.url, "")
                                 }
                             </div>
                         ))
@@ -94,12 +94,12 @@ const MsgDisplay = ({user, msg, theme, data}) => {
                 {
                     msg.call &&
                     <button className="btn d-flex align-items-center py-3"
-                    style={{background: '#eee', borderRadius: '10px'}}>
+                    style={{borderRadius: '10px'}}>
 
                         <span className="material-icons font-weight-bold mr-1"
                         style={{ 
                             fontSize: '1.5rem', color: msg.call.times === 0 ? 'gray' : '#3c68b1 ',
-                            filter: theme ? 'invert(1)' : 'invert(0)'
+                            
                         }}>
                             {
                                 msg.call.times === 0

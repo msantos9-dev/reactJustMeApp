@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import PageRender from './customRouter/PageRender'
@@ -25,11 +25,14 @@ import { getNotifies } from './redux/actions/notifyAction'
 import CallModal from './components/message/CallModal'
 import Peer from 'peerjs'
 
-function App() {
-  const { auth, status, modal, call } = useSelector(state => state)
-  const dispatch = useDispatch()
-  
+import DarkMode from "./components/DarkMode";
+import "../src/styles/global.css"
 
+function App() {
+
+  const dispatch = useDispatch();
+  const { auth, status, modal, call } = useSelector(state => state)
+  
   useEffect(() => {
     dispatch(refreshToken())
 
@@ -69,22 +72,25 @@ function App() {
   },[dispatch])
 
 
+
   return (
     <Router>
       <Alert />
 
-      <input type="checkbox" id="theme" />
-      <div className={`App ${(status || modal) && 'mode'}`} >
+      <div  className={`App ${(status || modal) && 'mode'}`} >
+     
         <div className="main">
+      
           {auth.token && <Header />}
           {status && <StatusModal />}
           {auth.token && <SocketClient />}
           {call && <CallModal />}
           
-          <Route exact path="/" component={auth.token ? Home : PageRender} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
 
+
+          <Route exact path="/" component={auth.token ? Home : PageRender} />
           <PrivateRouter exact path="/:page" component={PageRender} />
           <PrivateRouter exact path="/:page/:id" component={PageRender} />
           

@@ -14,7 +14,7 @@ const Info = ({id, auth, profile, dispatch}) => {
     const [showFollowers, setShowFollowers] = useState(false)
     const [showFollowing, setShowFollowing] = useState(false)
 
-    const { theme } = useSelector(state => state)
+   
 
     useEffect(() => {
         if(id === auth.user._id){
@@ -47,7 +47,7 @@ const Info = ({id, auth, profile, dispatch}) => {
                                 <h2 style={{opacity:"0.7"}}>@{user.username}</h2>
                                 {
                                     user._id === auth.user._id
-                                    ?  <button className="btnEditProfile"  style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
+                                    ?  <button className="btnEditProfile"  
                                     onClick={() => setOnEdit(true)}>
                                        <span s>Edit Profile</span>
                                     </button>
@@ -58,7 +58,7 @@ const Info = ({id, auth, profile, dispatch}) => {
                                
                             </div>
 
-                            <div className="follow_btn " style={{opacity:"0.7", filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}}>
+                            <div className="follow_btn " style={{opacity:"0.7", color: "#3c68b1 "}}>
                                 <h6><span className="mr-4" onClick={() => setShowFollowers(true)}>
                                     {user.followers.length} Followers
                                 </span>

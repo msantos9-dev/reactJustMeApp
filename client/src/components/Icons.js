@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Icons = ({setContent, content, theme}) => {
+const Icons = ({setContent, content}) => {
     const reactions = [   
         '❤️', '😆', '😯', '😢', '😡', '👍', '👎', '😄',
         '😂', '😍', '😘', '😗', '😚', '😳', '😭', '😓',
@@ -9,7 +9,7 @@ const Icons = ({setContent, content, theme}) => {
 
     return (
         <div className="nav-item dropdown" 
-        style={{ opacity: 1, filter: theme ? 'invert(1)' : 'invert(0)' }}>
+        style={{ opacity: 1 }}>
             
             <span className="nav-link position-relative px-1 mt-1" id="navbarDropdown" 
             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

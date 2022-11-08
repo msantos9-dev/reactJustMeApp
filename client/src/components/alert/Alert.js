@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { GLOBALTYPES } from '../../redux/actions/globalTypes'
 
 import Loading from './Loading'
-import Toast from './Toast'
 import Swal from 'sweetalert2';
 
 
@@ -18,7 +17,6 @@ const Notify = () => {
             {
                 alert.error && 
                 Swal.fire({
-                    title : 'Error',
                     text: alert.error,
                     icon: 'error',
                     customClass: {
@@ -36,7 +34,6 @@ const Notify = () => {
             {
                 alert.success && 
                Swal.fire({
-                    title : 'Success',
                     icon: 'success',
                     text: alert.success,
                     customClass: {

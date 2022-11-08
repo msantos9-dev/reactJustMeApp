@@ -14,8 +14,6 @@ const Profile = () => {
     const { profile, auth } = useSelector(state => state)
     const dispatch = useDispatch()
 
-    const { theme } = useSelector(state => state)
-
     const { id } = useParams()
     const [saveTab, setSaveTab] = useState(false)
 
@@ -32,11 +30,11 @@ const Profile = () => {
 
             {
                 auth.user._id === id &&
-                <div className="profile_tab" style = {{ filter: theme ? 'invert(1)' : 'invert(0)'}} >
-                    <button style = {{ filter: theme ? 'invert(1)' : 'invert(0)'}} className={saveTab ? '' : 'active'} onClick={() => setSaveTab(false)}>
-                        <span style = {{ filter: theme ? 'invert(1)' : 'invert(0)', color: theme ? "#3c68b1 ":"#3c68b1 "}} >Posts</span></button>
-                    <button style = {{ filter: theme ? 'invert(1)' : 'invert(0)'}} className={saveTab ? 'active' : ''} onClick={() => setSaveTab(true)}>
-                    <span style = {{ filter: theme ? 'invert(1)' : 'invert(0)', color: theme ? "#3c68b1 ":"#3c68b1 "}}>Bookmarked</span></button>
+                <div className="profile_tab"  >
+                    <button className={saveTab ? '' : 'active'} onClick={() => setSaveTab(false)}>
+                        <span  >Posts</span></button>
+                    <button  className={saveTab ? 'active' : ''} onClick={() => setSaveTab(true)}>
+                    <span >Bookmarked</span></button>
                 </div>
             }
 

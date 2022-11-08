@@ -2,10 +2,11 @@ import React from 'react'
 import Avatar from './Avatar'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import "../styles/darkMode.css"
 
 const UserCard = ({children, user, border, handleClose, setShowFollowers, setShowFollowing, msg}) => {
 
-    const { theme } = useSelector(state => state)
+   
 
     const handleCloseAll = () => {
         if(handleClose) handleClose()
@@ -13,10 +14,13 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
         if(setShowFollowing) setShowFollowing(false)
     }
 
+    const isdarkMode = localStorage.getItem("theme");
+    
+
     const showMsg = (user) => {
         return(
             <>
-                <div style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
+                <div >
                     {user.text}
                 </div> 
                 {
@@ -42,14 +46,14 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
 
 
     return (
-        <div className={`d-flex p-2 align-items-center justify-content-between w-100 ${border}`}>
+        <div className={` d-flex p-2 align-items-center justify-content-between w-100 ${border}`}>
             <div>
                 <Link to={`/profile/${user._id}`} onClick={handleCloseAll}
-                className="d-flex align-items-center " style={{textDecoration: 'none', color: "black"}} >
+                className="d-flex align-items-center " style={{textDecoration: 'none'}} >
                     
                     <Avatar src={user.avatar} size="big-avatar" className="me-2"/>
 
-                    <div className="ml-2" style={{transform: 'translateY(-2px)'}}>
+                    <div id="userCard" className="ml-2" style={{transform: 'translateY(-2px)'}}>
                         <span className="d-block">@{user.username}</span>
                         
                         <small style={{opacity: 0.7}}>

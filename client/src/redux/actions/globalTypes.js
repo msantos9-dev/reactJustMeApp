@@ -9,8 +9,9 @@ export const GLOBALTYPES = {
     OFFLINE: 'OFFLINE',
     CALL: 'CALL',
     PEER: 'PEER',
-    DARK_MODE: 'DARK_MODE'
 }
+
+export const DARK_MODE = "DARK_MODE";
 
 export const EditData = (data, id, post) => {
     const newData = data.map(item => 

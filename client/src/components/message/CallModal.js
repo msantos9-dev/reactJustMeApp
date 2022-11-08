@@ -6,7 +6,7 @@ import { addMessage } from '../../redux/actions/messageAction'
 import RingRing from '../../audio/ringring.wav'
 
 const CallModal = () => {
-    const { call, auth, peer, socket, theme } = useSelector(state => state)
+    const { call, auth, peer, socket } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [hours, setHours] = useState(0)
@@ -222,7 +222,7 @@ const CallModal = () => {
                 }
                 
 
-                <div className="call_menu" style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
+                <div className="call_menu" >
                     <button className="material-icons text-danger"
                     onClick={handleEndCall}>
                         <span>{call.video ?
@@ -253,7 +253,7 @@ const CallModal = () => {
 
             <div className="show_video" style={{
                 opacity: (answer && call.video) ? '1' : '0',
-                filter: theme ? 'invert(1)' : 'invert(0)'
+                
             }} >
 
                 <video ref={youVideo} className="you_video" playsInline muted />

@@ -6,7 +6,7 @@ const Carousel = ({images, id}) => {
         if(index === 0) return "active";
     }
 
-    const { theme } = useSelector(state => state)
+   
 
     return (
         <div id={`image${id}`} className="carousel slide" data-ride="carousel">
@@ -27,10 +27,10 @@ const Carousel = ({images, id}) => {
                             {
                                 img.url.match(/video/i)
                                 ? <video controls src={img.url} className="d-block w-100" alt={img.url}
-                                style={{filter: theme ? 'invert(1)' : 'invert(0)'}} />
+                                 />
 
                                 : <img src={img.url} className="d-block w-100" alt={img.url}
-                                style={{filter: theme ? 'invert(1)' : 'invert(0)'}} />
+                                 />
                             }
                            
                         </div>

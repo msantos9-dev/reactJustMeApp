@@ -14,7 +14,7 @@ const EditProfile = ({setOnEdit}) => {
 
     const [avatar, setAvatar] = useState('')
 
-    const { auth, theme } = useSelector(state => state)
+    const { auth } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const history = useHistory()
@@ -50,7 +50,7 @@ const EditProfile = ({setOnEdit}) => {
 
     return (
         <div className="edit_profile">
-            <button className="btn btn_close" style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor:"#3c68b1", color: 'white '}}
+            <button className="btn btn_close" style={{ backgroundColor:"#3c68b1", color: 'white '}}
             onClick={() => setOnEdit(false)}>
                 x
             </button>
@@ -58,8 +58,8 @@ const EditProfile = ({setOnEdit}) => {
             <form onSubmit={handleSubmit}>
                 <div className="info_avatar">
                     <img src={avatar ? URL.createObjectURL(avatar) : auth.user.avatar} 
-                    alt="avatar" style={{filter: theme ? 'invert(1)' : 'invert(0)'}} />
-                    <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}}>
+                    alt="avatar"  />
+                    <span >
                         <i className="fas fa-camera" />
                         <p>Upload</p>
                         <input type="file" name="file" id="file_up"
@@ -73,7 +73,7 @@ const EditProfile = ({setOnEdit}) => {
                         <input type="text" className="form-control" id="fullname"
                         name="fullname" value={fullname} onChange={handleInput} />
                         <small className="position-absolute font-weight-bold"
-                        style={{filter: theme ? 'invert(1)' : 'invert(0)', color:"#3c68b1 ", top: '50%', right: '5px', transform: 'translateY(-50%)'}}>
+                        style={{ color:"#3c68b1 ", top: '50%', right: '5px', transform: 'translateY(-50%)'}}>
                             {fullname.length}/50
                         </small>
                     </div>
@@ -102,7 +102,7 @@ const EditProfile = ({setOnEdit}) => {
                     <textarea name="story" value={story} cols="30" rows="4"
                     className="form-control" onChange={handleInput} />
 
-                    <small className="d-block text-right font-weight-bold" style={{filter: theme ? 'invert(1)' : 'invert(0)', color:"#3c68b1 "}}>
+                    <small className="d-block text-right font-weight-bold" style={{ color:"#3c68b1 "}}>
                         {story.length}/200
                     </small>
                 </div>
@@ -119,8 +119,8 @@ const EditProfile = ({setOnEdit}) => {
                 </div>
 
                 <button  disabled={fullname && mobile && fullname.length < 51 ? false : true} 
-                style={{filter: theme ? 'invert(1)' : 'invert(0)', backgroundColor: '#3c68b1 ', color: "white"}} className="btn  w-100" type="submit">
-                    <span style={{filter: theme ? 'invert(1)' : 'invert(0)'}} >Save Changes</span></button>
+                style={{backgroundColor: '#3c68b1 ', color: "white"}} className="btn  w-100" type="submit">
+                    <span  >Save Changes</span></button>
             </form>
         </div>
     )

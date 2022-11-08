@@ -1,18 +1,22 @@
 .comment_input{
+    background: none;
+
     display: flex;
     align-items: center;
 }
 .comment_input input{
-    background: #f7f7f7;
-    border: none;
+    background: var(--background-color);
+    border: 1px solid var(--background-color);
+    color: var(--text-color);
     outline: none;
     flex: 1;
     overflow: auto;
 }
 .comment_input .postBtn{
+    background: var(--background-color);
+
     border: none;
     outline: none;
-    background: #f7f7f7;
     color: blue;
     font-weight: 600;
     
@@ -26,14 +30,15 @@
     padding: 10px 25px;
 }
 .comment_card .comment_content{
-    background: #eee;
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     padding: 7px;
     border-radius: 10px;
     border-top-left-radius: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-color: #f7f7f7;
+   
 }
 .comment_card .comment_content .readMore{
     cursor: pointer;

@@ -14,7 +14,7 @@ import {
 import InputComment from "../InputComment";
 
 const CommentCard = ({ children, comment, post, commentId }) => {
-  const { auth, theme } = useSelector((state) => state);
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [content, setContent] = useState("");
@@ -76,16 +76,13 @@ const CommentCard = ({ children, comment, post, commentId }) => {
     <div className="comment_card mt-2" style={styleCard}>
       <Link to={`/profile/${comment.user._id}`} className="d-flex text-dark">
         <Avatar src={comment.user.avatar} size="small-avatar" />
-        <h6 className="mx-1">@{comment.user.username}</h6>
+        <h6 id="commentCardName" className="mx-1">@{comment.user.username}</h6>
       </Link>
 
       <div className="comment_content">
         <div
           className="flex-fill"
-          style={{
-            filter: theme ? "invert(1)" : "invert(0)",
-            color: theme ? "white" : "#111",
-          }}
+         
         >
           {onEdit ? (
             <textarea
@@ -126,10 +123,7 @@ const CommentCard = ({ children, comment, post, commentId }) => {
             </small>
 
             <small
-              style={{
-                filter: theme ? "invert(1)" : "invert(0)",
-                color: "#000",
-              }}
+             
               className="font-weight-bold mr-3 "
             >
               {comment.likes.length}{" "}
@@ -150,10 +144,7 @@ const CommentCard = ({ children, comment, post, commentId }) => {
               </>
             ) : (
               <small
-                style={{
-                  filter: theme ? "invert(1)" : "invert(0)",
-                  color: "#000",
-                }}
+               
                 className="font-weight-bold mr-3 "
                 onClick={handleReply}
               >

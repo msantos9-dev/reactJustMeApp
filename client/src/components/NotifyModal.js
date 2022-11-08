@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 const NotifyModal = () => {
     const { auth, notify } = useSelector(state => state)
     const dispatch = useDispatch()
-    const { theme } = useSelector(state => state)
+  
 
     const handleIsRead = (msg) => {
         dispatch(isReadNotify({msg, auth}))
@@ -47,17 +47,17 @@ const NotifyModal = () => {
 
     return (
         <>
-        <div style={{minWidth: '350px', borderRadius: "50px"}}>
+        <div className="notifyModal" style={{minWidth: '350px'}}>
             <div className="d-flex justify-content-between align-items-center px-3" >
                 <h3>Notifications</h3>
                 {
                     notify.sound 
                     ? <i className="fas fa-bell " 
-                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
+                    style={{fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
                     onClick={handleSound} />
 
                     : <i className="fas fa-bell-slash"
-                    style={{filter: theme ? 'invert(1)' : 'invert(0)', fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
+                    style={{ fontSize: '1.2rem', cursor: 'pointer', color: "#3c68b1 "}}
                     onClick={handleSound} />
                 }
             </div>
@@ -69,11 +69,11 @@ const NotifyModal = () => {
            
             }
 
-            <div style={{maxHeight: 'calc(100vh - 400px)', overflow: 'auto'}}>
+            <div className='notifyList' style={{maxHeight: 'calc(100vh - 400px)', overflow: 'auto'}}>
                 {
                     notify.data.map((msg, index) => (
                         <div key={index} className="px-2 mb-3" >
-                            <Link to={`${msg.url}`} className="d-flex text-dark align-items-center"
+                            <Link to={`${msg.url}`} className="notifyList d-flex align-items-center"
                             onClick={() => handleIsRead(msg)}>
                                 <Avatar src={msg.user.avatar} size="big-avatar" />
 
@@ -100,7 +100,7 @@ const NotifyModal = () => {
                             <small className="text-muted d-flex justify-content-between px-2">
                                 {moment(msg.createdAt).fromNow()}
                                 {
-                                    !msg.isRead && <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-circle" />
+                                    !msg.isRead && <i style={{ color: "#3c68b1 "}} className="fas fa-circle" />
                                 }
                             </small>
                         </div>
@@ -110,7 +110,7 @@ const NotifyModal = () => {
             </div>
 
             <hr className="my-1" />
-            <div className="text-right mr-2" style={{filter: theme ? 'invert(1)' : 'invert(0)', cursor: 'pointer',color: "#3c68b1 "}}
+            <div className="text-right mr-2" style={{cursor: 'pointer',color: "#3c68b1 "}}
             onClick={handleDeleteAll}>
                 Delete Notifications
             </div>

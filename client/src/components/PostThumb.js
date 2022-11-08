@@ -40,9 +40,10 @@ const PostThumb = ({posts, result}) => {
                             
                             <span >"{post.content.length > 50 ? post.content.slice(0,50) + "..." : post.content.slice(0,50)}"</span>
 
-                            <div className="post_thumb_menu">
-                                <i className="far fa-thumbs-up"> {post.likes.length}</i>
-                                <i className="far fa-comment"> {post.comments.length}</i>
+                            <div className="post_thumb_menu" style={{fontSize: "2rem"}}>
+                            <span className='mr-3'><ion-icon name="thumbs-up-outline"></ion-icon> {post.likes.length}</span>
+                            <span><ion-icon name="chatbubbles-sharp" ></ion-icon> {post.comments.length}</span>
+                               
                             </div>
                         </div>
                     </Link>

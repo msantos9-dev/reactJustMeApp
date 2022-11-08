@@ -5,6 +5,7 @@ import { logout } from "../../redux/actions/authAction";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 import Avatar from "../Avatar";
 import NotifyModal from "../NotifyModal";
+import DarkMode from "../DarkMode";
 
 const Menu = () => {
   
@@ -14,7 +15,7 @@ const Menu = () => {
     { label: "Discover", icon: "planet", path: "/discover" },
   ];
 
-  const { auth, theme, notify } = useSelector((state) => state);
+  const { auth, notify } = useSelector((state) => state);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   
@@ -30,17 +31,17 @@ const Menu = () => {
 
   return (
     <div className="menu mt-2">
-      
+     
       <ul className="navbar-nav flex-row">
         {navLinks.map((link, index) => (
           <li className={`nav-item px-2 ${isActive(link.path)} `} key={index}>
             <Link className="nav-link" to={link.path}>
              <span className="material-icons"
-             style={{ filter: theme ? 'invert(1)' : 'invert(0)', color: `${isActive(link.path)? "#3c68b1 ":"gray"}` }}><ion-icon name={`${link.icon}`}></ion-icon></span>
+             style={{ color: `${isActive(link.path)? "#3c68b1 ":"gray"}` }}><ion-icon name={`${link.icon}`}></ion-icon></span>
             </Link>
           </li>
         ))}
-
+            <span style={{ color: "#3c68b1 "}} className="mt-2 nav-item px-2">  <DarkMode /></span>
                 <li className="nav-item dropdown" style={{ opacity: 1 }} >
                     <span className="nav-link position-relative" id="navbarDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,10 +51,10 @@ const Menu = () => {
                             notifications
                         </span> */}
                         <span className="material-icons">
-                          <ion-icon name="notifications" style={{ filter: theme ? 'invert(1)' : 'invert(0)',  color: getUnread() > 0 ? '#3c68b1' : 'gray' }}></ion-icon>
+                          <ion-icon name="notifications" style={{  color: getUnread() > 0 ? '#3c68b1' : 'gray' }}></ion-icon>
                         </span>
                         {getUnread() > 0 &&
-                        <span className="notify_length badge badge-pill" style={{ filter: theme ? 'invert(1)' : 'invert(0)', outlineColor:"#3c68b1", outlineStyle: "solid", outlineWidth: "1px", backgroundColor: "white", color: "#3c68b1"}}>
+                        <span className="notify_length badge badge-pill" style={{ outlineColor:"#3c68b1", outlineStyle: "solid", outlineWidth: "1px", backgroundColor: "white", color: "#3c68b1"}}>
                             {getUnread()}
                         </span>
                         }
@@ -83,23 +84,10 @@ const Menu = () => {
 
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
-            {theme ? <span ><ion-icon  name="person-outline"></ion-icon> Profile</span>  : <span><ion-icon name="person-outline"></ion-icon> Profile</span>}
+            <span ><ion-icon  name="person-outline"></ion-icon> Profile</span>
             </Link>
 
-            <label
-              htmlFor="theme"
-              className="dropdown-item"
-              onClick={() =>
-                dispatch({
-                  type: GLOBALTYPES.THEME,
-                  payload: !theme,
-                })
-              }
-            >
-              {theme ? <span ><ion-icon  name="sunny-outline"></ion-icon> Light Mode
-              {localStorage.setItem("mode", theme)}</span>  : <span><ion-icon name="moon-outline"></ion-icon> 
-              {localStorage.setItem("mode", theme)} Dark Mode</span>}
-            </label>
+           
 
             <div className="dropdown-divider"></div>
             <Link
@@ -107,7 +95,7 @@ const Menu = () => {
               to="/"
               onClick={() => dispatch(logout())}
             >
-               {theme ? <span ><ion-icon  name="exit-outline"></ion-icon> Sign-out</span>  : <span><ion-icon name="exit-outline"></ion-icon> Sign-out</span>}
+              <span ><ion-icon  name="exit-outline"></ion-icon> Sign-out</span> 
             </Link>
           </div>
         </li>

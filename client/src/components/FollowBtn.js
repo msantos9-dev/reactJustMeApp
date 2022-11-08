@@ -7,7 +7,7 @@ const FollowBtn = ({user}) => {
 
     const { auth, profile, socket } = useSelector(state => state)
     const dispatch = useDispatch()
-    const { theme } = useSelector(state => state)
+    
     
     const [load, setLoad] = useState(false)
 
@@ -40,11 +40,11 @@ const FollowBtn = ({user}) => {
         <>
         {
             followed
-            ? <button className="followbtn" style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
+            ? <button className="followbtn" 
             onClick={handleUnFollow}>
                 UnFollow
             </button>
-            : <button className="followbtn"  style={{filter: theme ? 'invert(1)' : 'invert(0)'}}
+            : <button className="followbtn"  
             onClick={handleFollow}>
                 Follow
             </button>

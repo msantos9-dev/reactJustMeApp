@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import { register } from '../redux/actions/authAction'
-import brandLogo from '../images/justMe.png'
+import brandLogo from '../images/justMeLogo.png'
 
 const Register = () => {
     const { auth, alert } = useSelector(state => state)
@@ -17,6 +17,23 @@ const Register = () => {
 
     const [typePass, setTypePass] = useState(false)
     const [typeCfPass, setTypeCfPass] = useState(false)
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme")) ;
+    const inputStyle = {
+        backgroundColor: theme === "dark" ? "black": "white", 
+        color: theme === "dark" ? "white": "black", 
+        borderStyle: "solid", 
+        borderWidth: theme === "dark" ? "2px": "1px", 
+        borderColor: theme === "dark" ? "#151515": "lightgray", 
+        borderRadius: "10px"
+    }
+    const labelStyle = {
+        color: theme === "dark" ? "white": "black"
+    }
+
+    useEffect(() => {
+        setTheme(theme)
+      }, [theme]);
 
     useEffect(() => {
         if(auth.token) history.push("/")
@@ -34,15 +51,15 @@ const Register = () => {
     }
 
     return (
-        <div className="auth_page">
-            <form onSubmit={handleSubmit}>
-                <h3 className="text-uppercase text-center mb-4"><span ><img  style={{width: '180px'}} alt="" src={brandLogo} /></span></h3>
+        <div className="auth_page" style={{backgroundColor: theme === "dark" ? "black": "white"}}>
+            <form onSubmit={handleSubmit} style={inputStyle}>
+                <h3 className="text-uppercase text-center mb-4"><span ><img  style={{width: '90px'}} alt="" src={brandLogo} /></span></h3>
 
                 <div className="form-group">
                     <label htmlFor="fullname">Full Name</label>
                     <input type="text" className="form-control" id="fullname" name="fullname"
                     onChange={handleChangeInput} value={fullname}
-                    style={{background: `${alert.fullname ? '#fd2d6a14' : ''}`}} />
+                    style={inputStyle} />
                     
                     <small className="form-text text-danger">
                         {alert.fullname ? alert.fullname : ''}
@@ -51,9 +68,9 @@ const Register = () => {
 
                 <div className="form-group">
                     <label htmlFor="username">User Name</label>
-                    <input type="text" className="form-control" id="username" name="username"
+                    <input  type="text" className="form-control" id="username" name="username"
                     onChange={handleChangeInput} value={username.toLowerCase().replace(/ /g, '')}
-                    style={{background: `${alert.username ? '#fd2d6a14' : ''}`}} />
+                    style={inputStyle} />
                     
                     <small className="form-text text-danger">
                         {alert.username ? alert.username : ''}
@@ -62,9 +79,9 @@ const Register = () => {
 
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" name="email"
+                    <input  type="email" className="form-control" id="exampleInputEmail1" name="email"
                     onChange={handleChangeInput} value={email}
-                    style={{background: `${alert.email ? '#fd2d6a14' : ''}`}} />
+                    style={inputStyle}/>
                     
                     <small className="form-text text-danger">
                         {alert.email ? alert.email : ''}
@@ -79,7 +96,7 @@ const Register = () => {
                         <input type={ typePass ? "text" : "password" } 
                         className="form-control" id="exampleInputPassword1"
                         onChange={handleChangeInput} value={password} name="password"
-                        style={{background: `${alert.password ? '#fd2d6a14' : ''}`}} />
+                        style={inputStyle} />
 
                         <small onClick={() => setTypePass(!typePass)}>
                             {typePass ? <i className="fas fa-eye-slash mr-2" /> : <i className="fas fa-eye mr-2" />}
@@ -99,7 +116,7 @@ const Register = () => {
                         <input type={ typeCfPass ? "text" : "password" } 
                         className="form-control" id="cf_password"
                         onChange={handleChangeInput} value={cf_password} name="cf_password"
-                        style={{background: `${alert.cf_password ? '#fd2d6a14' : ''}`}} />
+                        style={inputStyle} />
 
                         <small onClick={() => setTypeCfPass(!typeCfPass)}>
                             {typeCfPass ? <i className="fas fa-eye-slash mr-2" /> : <i className="fas fa-eye mr-2" />}
@@ -113,17 +130,17 @@ const Register = () => {
 
                 <div className="row justify-content-between mx-0 mb-1">
                     <label htmlFor="male">
-                        Male: <input type="radio" id="male" name="gender"
+                        Male: <input style={inputStyle} type="radio" id="male" name="gender"
                         value="male" defaultChecked onChange={handleChangeInput} />
                     </label>
 
                     <label htmlFor="female">
-                        Female: <input type="radio" id="female" name="gender"
+                        Female: <input  style={inputStyle} type="radio" id="female" name="gender"
                         value="female" onChange={handleChangeInput} />
                     </label>
 
                     <label htmlFor="other">
-                        Prefer not to say: <input type="radio" id="other" name="gender"
+                        Prefer not to say: <input  style={inputStyle} type="radio" id="other" name="gender"
                         value="other" onChange={handleChangeInput} />
                     </label>
                 </div>

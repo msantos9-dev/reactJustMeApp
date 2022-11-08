@@ -14,7 +14,7 @@ const CardFooter = ({post}) => {
 
     const [isShare, setIsShare] = useState(false)
 
-    const { auth, theme, socket } = useSelector(state => state)
+    const { auth, socket } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [saved, setSaved] = useState(false)
@@ -85,13 +85,13 @@ const CardFooter = ({post}) => {
                         <i className="far fa-comment-alt" />
                     </Link>
 
-                    <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
+                    <i style={{ color: "#3c68b1 "}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
                     
                 </div>
 
                 {
                     saved 
-                    ?  <i style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}} className="fas fa-bookmark "
+                    ?  <i style={{ color: "#3c68b1 "}} className="fas fa-bookmark "
                     onClick={handleUnSavePost} />
                     
 
@@ -112,7 +112,7 @@ const CardFooter = ({post}) => {
             </div>
 
             {
-                isShare && <ShareModal url={`${BASE_URL}/post/${post._id}`} theme={theme} />
+                isShare && <ShareModal url={`${BASE_URL}/post/${post._id}`} theme={""} />
             }
         </div>
     )

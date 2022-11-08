@@ -1,32 +1,35 @@
 /* --------- Status ---------- */
 .status{
-    background: white;
+    background: var(--background-color);
     padding: 20px;
     border-radius: 5px;
-    border: 1px solid rgb(0, 0, 0, .125);
+    border: 1px solid var(--secondary-color);
     border-radius: 10px;
 }
 .status .statusBtn{
-    background: #f1f1f1;
-    border: none;
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     outline: none;
     border-radius: 10px;
-    color: #555;
+    color: var(--text-color);
     padding: 0 10px;
     text-align: left;
     margin: 0 5px;
 }
 .status .statusBtn:hover{
-    background: #ddd;
+    background: rgba(243, 243, 243, 0.125);
 }
 
 /* ------------Posts ------ */
 .posts .card{
-   
+    background: var(--background-color);
     border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+    
 }
 /* --------- Post Card Header --------- */
 .posts .card_header{
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,6 +39,7 @@
 .posts .card_header .card_name{
     transform: translateY(3px);
 }
+
 .posts .card_header .dropdown-menu{
     position: absolute;
     right: 0;
@@ -47,6 +51,7 @@
 }
 
 /* ---------- Post Card Body ---------- */
+
 .posts .card_body-content{
     padding: 0 25px;
     margin-top: -10px;
@@ -73,4 +78,10 @@
     height: 28px;
     transform: translate(5px, -5px);
     opacity: 0.9;
+}
+
+.posts .card_footer {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--secondary-color);
+
 }

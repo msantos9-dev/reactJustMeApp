@@ -1,0 +1,8 @@
+.notifyModal {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.notifyList{
+    color: var(--text-color);
+}

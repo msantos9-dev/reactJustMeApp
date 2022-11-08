@@ -9,14 +9,14 @@ import { getSuggestions } from '../../redux/actions/suggestionsAction'
 const RightSideBar = () => {
     const { auth, suggestions } = useSelector(state => state)
     const dispatch = useDispatch()
-    const { theme } = useSelector(state => state)
+    
 
     return (
         <div className="mt-3">
             <UserCard user={auth.user} />
 
             <div className="d-flex justify-content-between align-items-center my-3">
-                <h5 style={{filter: theme ? 'invert(1)' : 'invert(0)', color: "#3c68b1 "}}>People you may know.</h5>
+                <h5 style={{color: "#3c68b1 "}}>People you may know.</h5>
                 {
                     !suggestions.loading &&
                     

@@ -9,7 +9,7 @@ import { BASE_URL } from '../../../utils/config'
 import Swal from 'sweetalert2';
 
 const CardHeader = ({post}) => {
-    const { auth, theme, socket } = useSelector(state => state)
+    const { auth, socket } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const history = useHistory()
@@ -55,9 +55,9 @@ const CardHeader = ({post}) => {
             <div className="d-flex">
                 <Avatar src={post.user.avatar} size="big-avatar" />
 
-                <div className="card_name ml-2">
-                    <h6 className="m-0">
-                        <Link to={`/profile/${post.user._id}`} className="text-dark">
+                <div  className="card_name ml-2">
+                    <h6  className="m-0">
+                        <Link id="postCardName" to={`/profile/${post.user._id}`} >
                             @{post.user.username}
                         </Link>
                     </h6>
@@ -72,7 +72,7 @@ const CardHeader = ({post}) => {
                 <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </span>
 
-                <div style={{filter: theme ? 'invert(1)' : 'invert(0)' }} className="dropdown-menu">
+                <div className="dropdown-menu">
                     {
                         auth.user._id === post.user._id &&
                         <>

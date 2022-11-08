@@ -36,7 +36,7 @@ const Search = () => {
     }
 
     return (
-        <form className="search_form" onKeyUp={handleSearch}>
+        <form className="search_form mt-2" onKeyUp={handleSearch}>
             <input type="text" style={{ height: "40px", borderRadius: "10px", background: "none"}} name="search" value={search} id="search" title="Enter to Search"
             onChange={e => setSearch(e.target.value.toLowerCase().replace(/ /g, ''))} />
 
