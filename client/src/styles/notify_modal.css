@@ -6,3 +6,7 @@
 .notifyList{
     color: var(--text-color);
 }
+
+.notifyList::-webkit-scrollbar {
+    display: none;
+  }

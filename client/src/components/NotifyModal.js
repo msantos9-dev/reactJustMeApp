@@ -47,7 +47,7 @@ const NotifyModal = () => {
 
     return (
         <>
-        <div className="notifyModal" style={{minWidth: '350px'}}>
+        <div className="notifyModal shadow-4-strong" style={{minWidth: '350px', borderRadius: "10px"}}>
             <div className="d-flex justify-content-between align-items-center px-3" >
                 <h3>Notifications</h3>
                 {
@@ -110,9 +110,9 @@ const NotifyModal = () => {
             </div>
 
             <hr className="my-1" />
-            <div className="text-right mr-2" style={{cursor: 'pointer',color: "#3c68b1 "}}
+            <div className="text-right mr-2" style={{fontSize: "17px", cursor: 'pointer',color: "#3c68b1 "}}
             onClick={handleDeleteAll}>
-                Delete Notifications
+               <span>Delete Notifications</span> 
             </div>
 
         </div>

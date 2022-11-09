@@ -102,7 +102,7 @@ const StatusModal = () => {
    
 
     return (
-        <div className="status_modal">
+        <div className="status_modal shadow-3-strong">
             <form onSubmit={handleSubmit}>
                 <div className="status_header">
                     <h5 className="m-0">Write your post</h5>

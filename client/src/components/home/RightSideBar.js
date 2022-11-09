@@ -12,7 +12,7 @@ const RightSideBar = () => {
     
 
     return (
-        <div className="mt-3">
+        <div className="mt-3 rightSide">
             <UserCard user={auth.user} />
 
             <div className="d-flex justify-content-between align-items-center my-3">

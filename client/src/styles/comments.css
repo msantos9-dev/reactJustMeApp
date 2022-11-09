@@ -32,7 +32,7 @@
 .comment_card .comment_content{
     background: var(--secondary-color);
     border: 1px solid var(--secondary-color);
-    padding: 7px;
+    padding: 10px;
     border-radius: 10px;
     border-top-left-radius: 0;
     display: flex;
@@ -42,7 +42,7 @@
 }
 .comment_card .comment_content .readMore{
     cursor: pointer;
-    color: crimson;
+    color: #3c68b1 ;
 }
 
 .comment_card .comment_content .nav-item{

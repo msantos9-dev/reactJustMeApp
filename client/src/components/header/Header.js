@@ -26,7 +26,7 @@ window.addEventListener("scroll", changeColor)
                 <Link to="/" className="logo">
                     <h1 className="navbar-brand  p-0 m-0"
                     onClick={() => window.scrollTo({top: 0})}>
-                        <span ><img  style={{width: '80px'}} alt="" src={brandLogo} /></span>
+                        <span className='ml-4'><img  style={{width: '80px'}} alt="" src={brandLogo} /></span>
                     </h1>
                 </Link>
                 <Search />

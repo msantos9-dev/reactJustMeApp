@@ -88,3 +88,17 @@
 .comment_input{
     border-top: 1px solid var(--secondary-color);
 }
+
+/* ---------- 
+.suggestions {
+    max-height: calc(100vh - 550px);
+    height: 700px;
+    overflow: scroll;
+    
+}
+
+.suggestions::-webkit-scrollbar {
+    display: none;
+  }
+
+  --------- */

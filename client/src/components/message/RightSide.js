@@ -145,12 +145,7 @@ const RightSide = () => {
     },[isLoadMore])
 
     const handleDeleteConversation = () => {
-    //     if(window.confirm('Do you want to delete?')){
-    //         dispatch(deleteConversation({auth, id}))
-    //         return history.push('/message')
-    //     }
-    //}
-    
+
     Swal.fire({
         text: "Are you sure you want to delete this conversation?",
         showCancelButton: true,

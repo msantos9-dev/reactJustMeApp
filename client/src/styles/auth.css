@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
     background-image: url('../images/bg2.png');
-    background-size:     cover;                      
+    background-size:     contain;                      
     background-repeat:   no-repeat;
     background-position: center center; 
     display: flex;
@@ -11,6 +11,7 @@
 }
 .auth_page form{
     background: var(--background-color);
+    opacity: 0.95;
     max-width: 400px;
     width: 100%;
     border: 1px solid var(--secondary-color);
@@ -24,6 +25,15 @@
     border: 1px solid var(--secondary-color);
     color: var(--text-color);
     border-radius: "10px";
+}
+
+.form-label{
+    color: var(--background-color);
+}
+
+
+.auth_page form .form-label {
+    color: var(--text-color);
 }
 
 .auth_page form .darkModeSpan{

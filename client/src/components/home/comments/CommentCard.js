@@ -99,19 +99,19 @@ const CommentCard = ({ children, comment, post, commentId }) => {
                   </span>
                 </Link>
               )}
-              <span>
-                {content.length < 100
+              <span style={{wordBreak: "break-word"}}>
+                {content.length < 200
                   ? content
                   : readMore
                   ? content + " "
-                  : content.slice(0, 100) + "...."}
+                  : content.slice(0, 200) + "...."}
               </span>
-              {content.length > 100 && (
+              {content.length > 200 && (
                 <span
                   className="readMore"
                   onClick={() => setReadMore(!readMore)}
                 >
-                  {readMore ? "Hide content" : "Read more"}
+                  {readMore ? " Hide content" : " Read more"}
                 </span>
               )}
             </div>

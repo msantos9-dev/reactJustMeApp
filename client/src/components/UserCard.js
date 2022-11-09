@@ -6,8 +6,6 @@ import "../styles/darkMode.css"
 
 const UserCard = ({children, user, border, handleClose, setShowFollowers, setShowFollowing, msg}) => {
 
-   
-
     const handleCloseAll = () => {
         if(handleClose) handleClose()
         if(setShowFollowers) setShowFollowers(false)
@@ -46,7 +44,7 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
 
 
     return (
-        <div className={` d-flex p-2 align-items-center justify-content-between w-100 ${border}`}>
+        <div className={` d-flex p-2 align-items-center justify-content-between w-100 `} id="searchResults">
             <div>
                 <Link to={`/profile/${user._id}`} onClick={handleCloseAll}
                 className="d-flex align-items-center " style={{textDecoration: 'none'}} >

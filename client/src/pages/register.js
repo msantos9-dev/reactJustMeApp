@@ -128,7 +128,7 @@ const Register = () => {
                     </small>
                 </div>
 
-                <div className="row justify-content-between mx-0 mb-1">
+                <div className="d-flex justify-content-between">
                     <label htmlFor="male">
                         Male: <input style={inputStyle} type="radio" id="male" name="gender"
                         value="male" defaultChecked onChange={handleChangeInput} />

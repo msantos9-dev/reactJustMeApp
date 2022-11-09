@@ -164,7 +164,7 @@ const postCtrl = {
 
             const newArr = [...req.user.following, req.user._id]
 
-            const num  = req.query.num || 8
+            const num  = req.query.num || 12
 
             const posts = await Posts.aggregate([
                 { $match: { user : { $nin: newArr } } },

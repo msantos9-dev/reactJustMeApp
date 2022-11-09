@@ -30,18 +30,18 @@ const Menu = () => {
   };
 
   return (
-    <div className="menu mt-2">
+    <div className="menu mt-2 mr-4">
      
       <ul className="navbar-nav flex-row">
         {navLinks.map((link, index) => (
           <li className={`nav-item px-2 ${isActive(link.path)} `} key={index}>
-            <Link className="nav-link" to={link.path}>
-             <span className="material-icons"
-             style={{ color: `${isActive(link.path)? "#3c68b1 ":"gray"}` }}><ion-icon name={`${link.icon}`}></ion-icon></span>
+            <Link className="nav-link " to={link.path}>
+             <span className="material-icons" 
+             style={{ color: `${isActive(link.path)? "#3c68b1 ":"gray"}` }}><ion-icon data-mdb-toggle="tooltip" data-mdb-placement="top" title="Tooltip on top" name={`${link.icon}`}></ion-icon></span>
             </Link>
           </li>
         ))}
-            <span style={{ color: "#3c68b1 "}} className="mt-2 nav-item px-2">  <DarkMode /></span>
+            <span style={{ color: "#3c68b1 "}} className="mt-1 nav-item px-2">  <DarkMode /></span>
                 <li className="nav-item dropdown" style={{ opacity: 1 }} >
                     <span className="nav-link position-relative" id="navbarDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,7 +70,8 @@ const Menu = () => {
           </div>
         </li>
 
-        <li className="nav-item dropdown" style={{ opacity: 1 }}>
+
+        <li className="nav-item dropdown" style={{ opacity: 1}}>
           <span
             className="nav-link dropdown-toggle"
             id="navbarDropdown"
@@ -82,14 +83,15 @@ const Menu = () => {
             <Avatar src={auth.user.avatar} size="medium-avatar" />
           </span>
 
-          <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <Link className="dropdown-item" to={`/profile/${auth.user._id}`}>
+
+          <div className="dropdown-menu shadow-3" aria-labelledby="navbarDropdown" style={{borderRadius: "20px"}}>
+            <Link className="dropdown-item" to={`/profile/${auth.user._id}`} >
             <span ><ion-icon  name="person-outline"></ion-icon> Profile</span>
             </Link>
 
            
 
-            <div className="dropdown-divider"></div>
+          
             <Link
               className="dropdown-item"
               to="/"

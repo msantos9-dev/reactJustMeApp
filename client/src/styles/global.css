@@ -152,7 +152,7 @@ img {
   }
   
   .message{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
   }
   .right_mess,
   .left_mess{
