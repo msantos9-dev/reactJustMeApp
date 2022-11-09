@@ -44,8 +44,7 @@ const DarkMode = () => {
     <>
     
       
-    <ion-icon id="darkMode"
-    onClick={(e) => switchTheme(e)} name={buttonIcon }></ion-icon>
+    <ion-icon id="darkMode" onClick={(e) => switchTheme(e)} name={buttonIcon }></ion-icon>
     </>
   );
 };

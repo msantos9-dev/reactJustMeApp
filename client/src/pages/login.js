@@ -18,18 +18,7 @@ const Login = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const [theme, setTheme] = useState(localStorage.getItem("theme")) ;
-    const inputStyle = {
-        backgroundColor: theme === "dark" ? "black": "white", 
-        color: theme === "dark" ? "white": "black", 
-        borderStyle: "solid", 
-        borderWidth: theme === "dark" ? "x": "1px", 
-        borderColor: theme === "dark" ? "#151515": "lightgray", 
-        borderRadius: "10px"
-    }
-    const labelStyle = {
-        color: theme === "dark" ? "white": "black"
-    }
+    
 
     useEffect(() => {
         if(auth.token) history.push("/")
@@ -45,24 +34,22 @@ const Login = () => {
         dispatch(login(userData))
     }
 
-    useEffect(() => {
-        setTheme(theme)
-      }, [theme]);
+    
 
     return (
 
         <div className="auth_page" >
            
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} style={{borderRadius: "10px"}}>
                           <h3 className="text-uppercase text-center mb-4"><span ><img  style={{width: '180px'}} alt="" src={brandLogo} /></span></h3>
 
-                <div className="form-group">
+                <div className="form-group" hidden>
                     <label htmlFor="exampleInputEmail1" className='mr-2 mb-4'>Toggle to Change theme </label>
                     <span className='darkModeSpan form-control'><DarkMode />  </span>   
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input  type="email" className="form-control" id="exampleInputEmail1" name="email"
+                    <input style={{borderRadius: "10px"}} type="email" className="form-control" id="exampleInputEmail1" name="email"
                     aria-describedby="emailHelp" onChange={handleChangeInput} value={email} />
                     
                     <small id="emailHelp" className="form-text text-muted">
@@ -75,7 +62,7 @@ const Login = () => {
 
                     <div className="pass">
                         
-                        <input  type={ typePass ? "text" : "password" } 
+                        <input style={{borderRadius: "10px"}} type={ typePass ? "text" : "password" } 
                         className="form-control" id="exampleInputPassword1"
                         onChange={handleChangeInput} value={password} name="password" />
 

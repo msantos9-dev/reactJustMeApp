@@ -67,7 +67,7 @@ const CardHeader = ({post}) => {
                 </div>
             </div>
 
-            <div className="nav-item dropdown">
+            <div className="nav-item dropdown" style={{borderRadius: "44px"}}>
                 <span className="material-icons" id="moreLink" data-toggle="dropdown">
                 <ion-icon name="ellipsis-vertical-outline"></ion-icon>
                 </span>

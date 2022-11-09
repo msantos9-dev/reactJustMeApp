@@ -81,11 +81,11 @@ const CardFooter = ({post}) => {
                     handleUnLike={handleUnLike}
                     />
 
-                    <Link to={`/post/${post._id}`} className="text-dark">
+                    <Link to={`/post/${post._id}`} style={{ color: "gray "}}>
                         <i className="far fa-comment-alt" />
                     </Link>
 
-                    <i style={{ color: "#3c68b1 "}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
+                    <i style={{ color:  isShare ? "#3c68b1 ":"gray"}} className="fas fa-share-alt" onClick={() => setIsShare(!isShare)} />
                     
                 </div>
 
@@ -95,7 +95,7 @@ const CardFooter = ({post}) => {
                     onClick={handleUnSavePost} />
                     
 
-                    :  <i className="far fa-bookmark"
+                    :  <i style={{ color: "gray "}}  className="far fa-bookmark"
                     onClick={handleSavePost} />
                 }
                

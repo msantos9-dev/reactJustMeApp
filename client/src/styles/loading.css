@@ -10,6 +10,7 @@
     text-transform: uppercase;
     letter-spacing: 1.2px;
     animation: text 1s ease-in-out infinite;
+    margin: 33px 33px 33px 120px;
 }
 @keyframes text{
     50%{ opacity: 0.1 }

@@ -83,5 +83,8 @@
 .posts .card_footer {
     background-color: var(--background-color);
     border-bottom: 1px solid var(--secondary-color);
+}
 
+.comment_input{
+    border-top: 1px solid var(--secondary-color);
 }
