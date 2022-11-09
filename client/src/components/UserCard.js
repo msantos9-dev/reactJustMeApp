@@ -20,8 +20,8 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
     const showMsg = (user) => {
         return(
             <>
-                <div >
-                    {user.text}
+                <div style={{maxWidth: "300px", wordWrap: "break-word"}}>
+                    {user.text.length > 60 ? user.text.slice(0, 60) + " ...":user.text}
                 </div> 
                 {
                     user.media.length > 0 && 

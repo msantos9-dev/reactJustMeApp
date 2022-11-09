@@ -1,7 +1,10 @@
 .auth_page{
     width: 100%;
     min-height: 100vh;
-    background: var(--background-color);
+    background-image: url('../images/bg2.png');
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +15,8 @@
     width: 100%;
     border: 1px solid var(--secondary-color);
     padding: 50px 25px;
+    box-shadow: 1px 1px 5px rgb(104, 104, 104);
+    
 }
 
 .auth_page form .form-control{

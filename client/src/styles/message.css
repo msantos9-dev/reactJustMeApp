@@ -173,22 +173,24 @@
     color: #777;
 }
 .you_message .chat_text{
+    overflow-x: unset;
     background: #3c68b1 ;
     color: white;
-   
     border-radius: 14px 14px 0 14px;
+    word-wrap: break-word;
 }
 .other_message .chat_text{
     background: var(--secondary-color);
     color: var(--text-color);
-   
     border-radius: 14px 14px 14px 0;
+    word-wrap: break-word;
 }
 .chat_title{
     margin-bottom: 3px;
 }
 .you_content{
     position: relative;
+    max-width: 300px;
 }
 
 .you_content .btn{
