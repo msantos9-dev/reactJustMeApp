@@ -5,7 +5,7 @@ import Posts from '../components/home/Posts'
 import RightSideBar from '../components/home/RightSideBar'
 
 import { useSelector } from 'react-redux'
-import LoadIcon from '../images/loading.gif'
+import LoadIcon from '../images/loadingPrimary.gif'
 
 
 let scroll = 0;

@@ -18,7 +18,7 @@ const CardBody = ({post}) => {
                 </span>
                 {
                     post.content.length > 200 &&
-                    <span style={{color: "black"}} className="readMore font-weight-bold" onClick={() => setReadMore(!readMore)}>
+                    <span  className="readMore font-weight-bold" onClick={() => setReadMore(!readMore)}>
                         {readMore ? ' See Less...' : ' See more...'}
                     </span>
                 }

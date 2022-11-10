@@ -108,7 +108,7 @@ const CommentCard = ({ children, comment, post, commentId }) => {
               </span>
               {content.length > 200 && (
                 <span
-                  className="readMore"
+                  className="readMore font-weight-bold"
                   onClick={() => setReadMore(!readMore)}
                 >
                   {readMore ? " Hide content" : " Read more"}

@@ -17,7 +17,7 @@
     margin: 0 5px;
 }
 .status .statusBtn:hover{
-    background: rgba(243, 243, 243, 0.125);
+    background: var(--background-color);
 }
 
 /* ------------Posts ------ */
@@ -58,7 +58,7 @@
     margin-bottom: 10px;
 }
 .posts .card_body-content .readMore{
-    color: crimson;
+    color: #3c68b1 ;
     cursor: pointer;
 }
 

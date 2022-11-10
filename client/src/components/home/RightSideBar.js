@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import UserCard from '../UserCard'
 import FollowBtn from '../FollowBtn'
-import LoadIcon from '../../images/loading.gif'
+import LoadIcon from '../../images/loadingPrimary.gif'
 import { getSuggestions } from '../../redux/actions/suggestionsAction'
 
 const RightSideBar = () => {
@@ -27,7 +27,7 @@ const RightSideBar = () => {
 
             {
                 suggestions.loading
-                ? <img style={{width: "200px"}} src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
+                ? <img style={{width: "150px"}} src={LoadIcon} alt="loading" className="d-block mx-auto my-4" />
                 : <div className="suggestions">
                     {
                         suggestions.users.map(user => (

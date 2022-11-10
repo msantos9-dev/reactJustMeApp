@@ -116,7 +116,7 @@ const StatusModal = () => {
                 <div className="status_body">
                     <textarea name="content" value={content}
                     placeholder={`What's on your mind @${auth.user.username}?`}
-                    onChange={e => setContent(e.target.value)}
+                    required onChange={e => setContent(e.target.value)}
                      />
 
                     <div className="d-flex">
@@ -184,7 +184,8 @@ const StatusModal = () => {
                 </div>
 
                 <div className="status_footer">
-                    <button style={{ backgroundColor: "#3c68b1 ", color: 'white'}} className="btn  w-100" type="submit">
+                
+                    <button style={{ backgroundColor: "#3c68b1 ", color: 'white'}} className="btn w-100" type="submit">
                     <span >Post</span>
                     </button>
                 </div>
